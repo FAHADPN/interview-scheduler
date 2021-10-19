@@ -28,6 +28,7 @@ class Interview(models.Model):
         blank=True,
         null=True,
         related_name='interviews',
+        on_delete = models.CASCADE,
     )
     created = models.DateTimeField(auto_now_add=True)
 
@@ -89,6 +90,7 @@ class InterviewConflict(models.Model):
     calendar = models.ForeignKey(
         'scheduler.InterviewCalendar',
         related_name='conflicts',
+        on_delete = models.CASCADE,
     )
     end_time = models.DateTimeField()
     start_time = models.DateTimeField()
@@ -107,6 +109,7 @@ class InterviewSlot(models.Model):
     calendar = models.ForeignKey(
         'scheduler.InterviewCalendar',
         related_name='slots',
+        on_delete = models.CASCADE,
     )
     end_time = models.TimeField()
     start_time = models.TimeField()
